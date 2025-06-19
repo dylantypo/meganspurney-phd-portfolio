@@ -2,11 +2,106 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+		<!-- 🔒 Security & DNS -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+		<meta http-equiv="x-dns-prefetch-control" content="on" />
+		<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+		<link rel="preload" href="/css/global.css" as="style" fetchpriority="high" />
+		<link rel="stylesheet" href="/css/global.css" />
+
+		<noscript>
+			<link rel="stylesheet" href="/css/global.css" />
+		</noscript>
+
+		<!-- 📊 Core Meta -->
+		<title>Megan Spurney</title>
+		<meta name="title" content="Megan Spurney" />
+		<meta name="author" content="Megan Spurney" />
+		<!-- <meta
+			name="description"
+			content="Data Scientist with 3+ years experience. Python | AWS | Tableau expert."
+		/>
+		<meta
+			name="keywords"
+			content="data scientist, python developer, aws, machine learning, tableau, web developer, portfolio"
+		/> -->
+		<link rel="icon" href="%sveltekit.assets%/icons/favicon.ico" />
+		<link rel="canonical" href="https://dylanposner.com" />
+		<link rel="alternate" type="application/rss+xml" title="Dylan Posner - Blog" href="/rss.xml" />
+
+		<!-- 📱 PWA & Mobile -->
+		<meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Megan Spurney" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+
+		<!-- 🔗 Open Graph -->
+		<meta property="og:type" content="profile" />
+		<meta property="og:url" content="https://meganspurney.com" />
+		<meta property="og:title" content="Megan Spurney - PHD Student & Researcher" />
+		<!-- <meta property="og:image" content="https://meganspurney.com/icons/profile.webp" /> -->
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Megan Spurney - Professional headshot" />
+		<!-- <meta
+			property="og:description"
+			content=""
+		/> -->
+		<meta property="og:site_name" content="Megan Spurney Portfolio" />
+		<meta property="profile:first_name" content="Megan" />
+		<meta property="profile:last_name" content="Spurney" />
+
+		<!-- 🤖 SEO & Validation -->
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+		<meta name="googlebot" content="index, follow" />
+		<meta name="displaydate" content="2025-01-29" />
+		<link rel="author" href="https://meganspurney.com" />
+
+		<!-- 🎯 Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Megan Spurney",
+				"jobTitle": "PHD Student",
+				"worksFor": {
+					"@type": "Organization",
+					"name": "Northwestern University"
+				},
+				"url": "https://meganspurney.com",
+				"email": "meganspurney@u.northwestern.edu",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Chicago",
+					"addressRegion": "IL",
+					"addressCountry": "US"
+				},
+				"sameAs": [
+					"https://github.com/meganspurney",
+					"https://scholar.google.com/citations?user=xeTU8s4AAAAJ&hl=en"
+				],
+				"alumniOf": {
+					"@type": "EducationalOrganization",
+					"name": "Cornell University"
+				}
+			}
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div id="svelte" style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
