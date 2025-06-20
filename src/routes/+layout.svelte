@@ -14,15 +14,15 @@
 
 <style>
 	.app-layout {
-		min-height: 100vh;
+		min-height: 100dvh;
 	}
 
 	/* Main content area when sidebar is present */
 	.main-content {
 		margin-left: 25%;
 		padding: 2rem;
-		padding-top: calc(80px + 2rem); /* Account for fixed nav height + padding */
-		min-height: 100vh;
+		padding-top: calc(65px + 1.25rem); /* Account for fixed nav height + padding */
+		min-height: 100dvh;
 	}
 
 	/* Mobile responsive */

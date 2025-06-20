@@ -22,8 +22,6 @@
 		<div class="profile-card">
 			<div class="profile-image">
 				<img src="/pics/Grad_Pic.jpg" alt="Megan Spurney" />
-				<div class="accent accent-1"></div>
-				<div class="accent accent-2"></div>
 			</div>
 
 			<div class="profile-info">
@@ -68,7 +66,7 @@
 		left: 0;
 		top: 0;
 		width: 25%;
-		height: 100vh;
+		height: 100dvh;
 		background: var(--color-bg);
 		z-index: var(--z-sticky);
 		overflow-y: auto;
@@ -101,8 +99,8 @@
 		margin: 0 auto 1.5rem;
 		border-radius: 1.25rem;
 		background: var(--color-secondary);
-		padding: 2px;
-		overflow: hidden;
+		padding: 0;
+		overflow: visible;
 	}
 
 	.profile-image img {
@@ -110,32 +108,12 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: center top;
-		border-radius: calc(1.25rem - 2px);
+		border-radius: 1.25rem;
+		box-shadow: 
+			0 0 0px 16px rgba(255, 255, 255, 0.075),
+			0 8px 32px rgba(171, 91, 236, 0.38),
+			0 4px 64px rgba(0, 0, 0, 0.25);
 	}
-
-	.accent {
-		position: absolute;
-		border-radius: 50%;
-	}
-
-	.accent-1 {
-		top: -0.5rem;
-		right: -0.5rem;
-		width: 1rem;
-		height: 1rem;
-		background: var(--color-secondary);
-		opacity: 0.6;
-	}
-
-	.accent-2 {
-		bottom: -0.375rem;
-		left: -0.375rem;
-		width: 0.75rem;
-		height: 0.75rem;
-		background: var(--color-primary);
-		opacity: 0.4;
-	}
-
 	.name {
 		font-size: 1.75rem;
 		font-weight: 600;

@@ -469,7 +469,6 @@
 		padding: var(--spacing-4) var(--spacing-4);
 		border-radius: var(--radius-2xl);
 		transition: all var(--transition-fast);
-		margin-bottom: var(--spacing-3);
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
 		border: none;

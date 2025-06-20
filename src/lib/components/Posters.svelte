@@ -356,7 +356,7 @@
 		}
 
 		.year-badge::before {
-			left: -1.25rem;
+			left: -1.5rem;
 		}
 
 		.presentations {
