@@ -99,6 +99,8 @@
 <style>
 	.about {
 		background: var(--color-bg);
+		padding: 2rem 1rem;
+		border-radius: 1.5rem;
 	}
 
 	.container {
@@ -113,6 +115,7 @@
 		border-radius: 1.5rem;
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+		margin-bottom: 2rem;
 	}
 
 	h2 {

@@ -81,6 +81,7 @@
 	.publications {
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg-secondary);
+		border-radius: 1.5rem;
 	}
 
 	.container {
