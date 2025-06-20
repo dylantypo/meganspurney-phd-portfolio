@@ -3,34 +3,17 @@
 	import { ExternalLink, Presentation, Calendar, MapPin } from '@lucide/svelte';
 
 	let postersSection: HTMLElement;
-	let yearSections: HTMLElement[] = [];
 
 	onMount(() => {
-		// Animate section entrance
+		// Simple fade-in for entire section
 		if (postersSection) {
 			postersSection.style.opacity = '0';
-			postersSection.style.transform = 'translateY(30px)';
-
-			setTimeout(() => {
-				postersSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+			
+			requestAnimationFrame(() => {
+				postersSection.style.transition = 'opacity 0.3s ease';
 				postersSection.style.opacity = '1';
-				postersSection.style.transform = 'translateY(0)';
-			}, 100);
+			});
 		}
-
-		// Stagger year section animations
-		yearSections.forEach((section, index) => {
-			if (section) {
-				section.style.opacity = '0';
-				section.style.transform = 'translateY(20px)';
-
-				setTimeout(() => {
-					section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-					section.style.opacity = '1';
-					section.style.transform = 'translateY(0)';
-				}, 300 + index * 150);
-			}
-		});
 	});
 
 	const postersData = [
@@ -42,14 +25,14 @@
 					location: "National Institutes of Health, Bethesda, MD, USA",
 					authors: "Spurney, M.A., Wei, SM., Eisenberg, D.P., Kohn, P.D., Recto, C. Wilder, I.M., Mann, N.S., Schmidt, P.J., Berman, K.F.",
 					title: "Resting Regional Cerebral Blood Flow Across Men, Naturally-Cycling Women, and Women using Oral Contraceptives Measured by [15O]-Water Positron Emission Tomography",
-					link: "/posters/PosterDay24_FINAL.pdf"
+					link: "../files/PosterDay24_FINAL.pdf"
 				},
 				{
 					conference: "Society of Biological Psychiatry Annual Meeting",
 					location: "Austin, TX, USA",
 					authors: "Spurney, M.A., Wei, SM., Eisenberg, D.P., Kohn, P.D., Recto, C. Wilder, I.M., Mann, N.S., Schmidt, P.J., Berman, K.F.",
 					title: "[15O]-Water PET Regional Cerebral Blood Flow during Rest in Men, Naturally-Cycling Women, and Women using Oral Contraceptives",
-					link: "/posters/SOBP24_Poster.pdf"
+					link: "../files/SOBP24_Poster.pdf"
 				}
 			]
 		},
@@ -61,28 +44,28 @@
 					location: "National Institutes of Health, Bethesda, MD, USA",
 					authors: "Spurney, M.A., Faskowitz, J., Gonzalez-Castillo, J., Handwerker, D.A., Bandettini, P.A.",
 					title: "Building brain-behavior predictions from multiple measures of fMRI connectivity dynamics",
-					link: "/posters/PosterDay_2023_final.pdf"
+					link: "../files/PosterDay_2023_final.pdf"
 				},
 				{
 					conference: "Organization for Human Brain Mapping Annual Meeting",
 					location: "Montreal, Canada",
 					authors: "Spurney, M.A., Faskowitz, J., Gonzalez-Castillo, J., Handwerker, D.A., Bandettini, P.A.",
 					title: "Edge-time series summary metrics: predictive value for demographics and cognitive traits",
-					link: "/posters/OHBM23_Poster_FINAL.pdf"
+					link: "../files/OHBM23_Poster_FINAL.pdf"
 				},
 				{
 					conference: "NIMH Training Day",
 					location: "National Institute of Mental Health, Bethesda, MD, USA",
 					authors: "Spurney, M.A., Faskowitz, J., Gonzalez-Castillo, J., Handwerker, D.A., Bandettini, P.A.",
 					title: "Exploring the landscape of brain-behavior predictions by leveraging dynamic connectivity information from resting-state fMRI",
-					link: "/posters/TraineeDayPoster23.pdf"
+					link: "../files/TraineeDayPoster23.pdf"
 				},
 				{
 					conference: "Society for Neuroscience Annual Meeting",
 					location: "Washington, DC, USA",
 					authors: "Spurney, M.A., Faskowitz, J., Gonzalez-Castillo, J., Handwerker, D.A., Bandettini, P.A.",
 					title: "Evaluating the predictive power of dynamic fMRI connectivity summary statistics",
-					link: "/posters/SFNPoster23_FINAL.pdf"
+					link: "../files/SFNPoster23_FINAL.pdf"
 				}
 			]
 		},
@@ -94,7 +77,7 @@
 					location: "National Institutes of Health, Bethesda, MD, USA",
 					authors: "Spurney, M.A., Gonzalez-Castillo, J., Lam, K.C., Handwerker, D.A., Teves, J., Pereira, F., Bandettini, P.A.",
 					title: "Content and Form of Conscious Thoughts Modulate Functional Connectivity",
-					link: "/posters/PosterDay2022.pdf"
+					link: "../files/PosterDay2022.pdf"
 				},
 				{
 					conference: "Organization for Human Brain Mapping Annual Meeting",
@@ -107,14 +90,14 @@
 					location: "National Institute of Mental Health, Bethesda, MD, USA",
 					authors: "Spurney, M.A., Gonzalez-Castillo, J., Lam, K.C., Handwerker, D.A., Teves, J., Pereira, F., Bandettini, P.A.",
 					title: "Functional Connectivity Modulated by Conscious Thoughts During Resting-State fMRI",
-					link: "/posters/TraineeDay22_Poster.pdf"
+					link: "../files/TraineeDay22_Poster.pdf"
 				},
 				{
 					conference: "Society for Neuroscience Annual Meeting",
 					location: "San Diego, CA, USA",
 					authors: "Spurney, M.A., Gonzalez-Castillo, J., Lam, K.C., Handwerker, D.A., Teves, J., Pereira, F., Bandettini, P.A.",
 					title: "How conscious in-scanner thoughts modulate functional connectivity during resting-state",
-					link: "/posters/SFN_Poster_2022.pdf"
+					link: "../files/SFN_Poster_2022.pdf"
 				}
 			]
 		},
@@ -142,11 +125,8 @@
 		</header>
 
 		<div class="timeline">
-			{#each postersData as yearData, yearIndex}
-				<div 
-					bind:this={yearSections[yearIndex]} 
-					class="year-section"
-				>
+			{#each postersData as yearData}
+				<div class="year-section">
 					<div class="year-header">
 						<div class="year-badge">
 							<Calendar size={16} />

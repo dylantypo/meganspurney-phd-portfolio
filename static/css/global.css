@@ -118,6 +118,11 @@ a:hover {
     opacity: 0.8;
 }
 
+/* Hide scrollbars */
+::-webkit-scrollbar {
+	display: none;
+}
+
 /* Focus styles */
 :focus-visible {
     outline: 2px solid var(--color-secondary);
