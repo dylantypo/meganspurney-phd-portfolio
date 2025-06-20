@@ -11,12 +11,6 @@
 </main>
 
 <style>
-	/* @font-face {
-		font-family: 'KenneyFuture';
-		src: url('/fonts/Kenney%20Future.woff2') format('woff2');
-		font-display: swap;
-	} */
-
 	/* Global body styling */
 	main {
 		background-color: var(--color-background);

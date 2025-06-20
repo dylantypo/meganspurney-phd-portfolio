@@ -1,29 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { MapPin } from '@lucide/svelte';
+	import { MapPin, Github, GraduationCap } from '@lucide/svelte';
 
 	let heroSection: HTMLElement;
 
 	onMount(() => {
 		if (heroSection) {
+			// Use opacity-only animation to avoid layout shifts
 			heroSection.style.opacity = '0';
-			heroSection.style.transform = 'translateY(20px)';
 
 			requestAnimationFrame(() => {
-				heroSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+				heroSection.style.transition = 'opacity 0.8s ease';
 				heroSection.style.opacity = '1';
-				heroSection.style.transform = 'translateY(0)';
 			});
 		}
 	});
 </script>
 
-<section bind:this={heroSection} class="hero">
-	<div class="container">
+<aside bind:this={heroSection} class="hero-sidebar">
+	<div class="sidebar-content">
 		<div class="profile-card">
 			<div class="profile-image">
 				<img src="/pics/Grad_Pic.jpg" alt="Megan Spurney" />
-				<!-- Subtle floating accents -->
 				<div class="accent accent-1"></div>
 				<div class="accent accent-2"></div>
 			</div>
@@ -36,25 +34,53 @@
 					Northwestern University
 				</div>
 				<div class="location-detail">Chicago, IL</div>
+
+				<div class="social-links">
+					<a
+						href="https://github.com/meganspurney"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="social-link"
+						aria-label="GitHub Profile"
+					>
+						<Github size={18} />
+						GitHub
+					</a>
+					<a
+						href="https://scholar.google.com/citations?user=xeTU8s4AAAAJ&hl=en"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="social-link"
+						aria-label="Google Scholar Profile"
+					>
+						<GraduationCap size={18} />
+						Scholar
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</aside>
 
 <style>
-	.hero {
-		padding: 4rem 1.5rem;
-		min-height: 60vh;
+	.hero-sidebar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 25%;
+		height: 100vh;
+		background: var(--color-bg);
+		border-right: 1px solid var(--color-border-light);
+		z-index: var(--z-sticky);
+		overflow-y: auto;
+	}
+
+	.sidebar-content {
+		padding: 2rem 1.5rem;
+		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: var(--color-bg);
-	}
-
-	.container {
-		max-width: 32rem;
-		margin: 0 auto;
-		width: 100%;
 	}
 
 	.profile-card {
@@ -62,15 +88,17 @@
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
 		border-radius: 1.5rem;
-		padding: 2.5rem 2rem;
+		padding: 2rem 1.5rem;
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+		width: 100%;
+		max-width: 24rem;
 	}
 
 	.profile-image {
 		position: relative;
-		width: 10rem;
-		height: 12rem;
+		width: 12rem;
+		height: 15rem;
 		margin: 0 auto 1.5rem;
 		border-radius: 1.25rem;
 		background: var(--color-secondary);
@@ -110,7 +138,7 @@
 	}
 
 	.name {
-		font-size: 2rem;
+		font-size: 1.75rem;
 		font-weight: 600;
 		color: var(--color-primary);
 		margin-bottom: 0.75rem;
@@ -119,10 +147,10 @@
 	}
 
 	.title {
-		font-size: 1rem;
+		font-size: 0.9rem;
 		color: var(--color-text);
 		margin-bottom: 1rem;
-		line-height: 1.5;
+		line-height: 1.4;
 		font-family: var(--font-base);
 		opacity: 0.8;
 	}
@@ -132,7 +160,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.375rem;
-		font-size: 0.875rem;
+		font-size: 0.8rem;
 		color: var(--color-text);
 		font-weight: 500;
 		margin-bottom: 0.25rem;
@@ -141,23 +169,95 @@
 	}
 
 	.location-detail {
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		color: var(--color-text);
 		font-family: var(--font-base);
 		opacity: 0.6;
+		margin-bottom: 1.5rem;
 	}
 
-	@media (min-width: 768px) {
-		.profile-card {
-			padding: 3rem 2.5rem;
+	.social-links {
+		display: flex;
+		gap: 0.75rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 0.75rem;
+		background: rgba(255, 255, 255, 0.5);
+		border: 1px solid var(--color-border-light);
+		border-radius: var(--radius-lg);
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--color-text);
+		transition: all var(--transition-fast);
+		text-decoration: none;
+		backdrop-filter: blur(4px);
+	}
+
+	.social-link:hover {
+		background: var(--color-secondary);
+		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(171, 91, 236, 0.3);
+		opacity: 1;
+	}
+
+	@media (max-width: 1024px) {
+		.hero-sidebar {
+			position: relative;
+			width: 100%;
+			height: auto;
+			border-right: none;
+			border-bottom: 1px solid var(--color-border-light);
+		}
+
+		.sidebar-content {
+			padding: 2rem 1.5rem;
+			height: auto;
+		}
+
+		.profile-image {
+			width: 10rem;
+			height: 12rem;
 		}
 
 		.name {
-			font-size: 2.25rem;
+			font-size: 2rem;
 		}
 
 		.title {
-			font-size: 1.125rem;
+			font-size: 1rem;
+		}
+
+		.location {
+			font-size: 0.875rem;
+		}
+
+		.location-detail {
+			font-size: 0.75rem;
+		}
+
+		.social-link {
+			font-size: 0.875rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.social-links {
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.social-link {
+			width: 100%;
+			max-width: 12rem;
+			justify-content: center;
 		}
 	}
 </style>
