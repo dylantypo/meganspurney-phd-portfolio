@@ -30,7 +30,6 @@
 		.main-content {
 			margin-left: 0;
 			padding: 1rem;
-			padding-top: calc(70px + 1rem);
 		}
 	}
 </style>

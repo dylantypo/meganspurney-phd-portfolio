@@ -38,8 +38,9 @@
 
 <style>
 	.section {
-		margin-bottom: 5rem;
+		margin-bottom: 8rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+		border-radius: 1.5rem;
 	}
 
 	.dev-notice {

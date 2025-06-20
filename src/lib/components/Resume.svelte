@@ -2,18 +2,18 @@
 	import { Download, ExternalLink } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
-	let isMobile = false;
-	let isLoaded = false;
+	let isMobile = $state(false);
+	let isLoaded = $state(false);
 
 	onMount(() => {
 		// Check if mobile on mount
 		const checkMobile = () => {
 			isMobile = window.innerWidth < 1024;
 		};
-		
+
 		checkMobile();
 		window.addEventListener('resize', checkMobile);
-		
+
 		// Set loaded state for smooth transitions
 		setTimeout(() => {
 			isLoaded = true;
@@ -36,22 +36,18 @@
 				<h3>Download Resume</h3>
 				<p>View my complete academic and research background</p>
 			</div>
-			
+
 			<div class="download-actions">
-				<a 
-					href="/MeganSpurney_CV_EndOf2024.pdf" 
-					target="_blank" 
+				<a
+					href="/MeganSpurney_CV_EndOf2024.pdf"
+					target="_blank"
 					rel="noopener noreferrer"
 					class="btn-primary"
 				>
 					<ExternalLink size={16} />
 					View PDF
 				</a>
-				<a 
-					href="/MeganSpurney_CV_EndOf2024.pdf" 
-					download
-					class="btn-secondary"
-				>
+				<a href="/MeganSpurney_CV_EndOf2024.pdf" download class="btn-secondary">
 					<Download size={16} />
 					Download
 				</a>
@@ -60,16 +56,16 @@
 	{:else}
 		<!-- Desktop: Clean PDF viewer with default controls -->
 		<div class="resume-container">
-			<iframe 
-				src="/MeganSpurney_CV_EndOf2024.pdf#view=FitH" 
+			<iframe
+				src="/MeganSpurney_CV_EndOf2024.pdf#view=FitH"
 				title="Megan Spurney Resume"
 				class="resume-iframe"
 				loading="lazy"
 			></iframe>
-			
+
 			<div class="resume-fallback">
 				<p>
-					Unable to display PDF? 
+					Unable to display PDF?
 					<a href="/MeganSpurney_CV_EndOf2024.pdf" target="_blank" rel="noopener noreferrer">
 						Open in new tab
 					</a>
@@ -163,7 +159,8 @@
 		margin: 0 auto;
 	}
 
-	.btn-primary, .btn-secondary {
+	.btn-primary,
+	.btn-secondary {
 		display: flex;
 		align-items: center;
 		justify-content: center;

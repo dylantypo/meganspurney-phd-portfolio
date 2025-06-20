@@ -96,8 +96,8 @@
 
 	.profile-image {
 		position: relative;
-		width: 12rem;
-		height: 15rem;
+		width: 18rem;
+		height: 21rem;
 		margin: 0 auto 1.5rem;
 		border-radius: 1.25rem;
 		background: var(--color-secondary);
@@ -206,14 +206,17 @@
 		opacity: 1;
 	}
 
-	@media (max-width: 1225px) {
-		.hero-sidebar {
-			width: 30%;
-		}
-
+	@media (max-width: 1585px) {
 		.profile-image {
-			width: 11rem;
-			height: 13rem;
+			width: 14rem;
+			height: 18rem;
+		}
+	}
+
+	@media (max-width: 1275px) {
+		.profile-image {
+			width: 10rem;
+			height: 12rem;
 		}
 
 		.name {
@@ -248,8 +251,8 @@
 		}
 
 		.profile-image {
-			width: 10rem;
-			height: 12rem;
+			width: 15rem;
+			height: 18rem;
 		}
 
 		.name {
@@ -274,6 +277,10 @@
 	}
 
 	@media (max-width: 768px) {
+		.profile-image {
+			width: 12rem;
+			height: 15rem;
+		}
 		.social-links {
 			flex-direction: column;
 			align-items: center;
