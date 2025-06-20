@@ -207,6 +207,33 @@
 		opacity: 1;
 	}
 
+	@media (max-width: 1225px) {
+		.hero-sidebar {
+			width: 30%;
+		}
+
+		.profile-image {
+			width: 11rem;
+			height: 13rem;
+		}
+
+		.name {
+			font-size: 1.5rem;
+		}
+
+		.title {
+			font-size: 0.875rem;
+		}
+
+		.location {
+			font-size: 0.75rem;
+		}
+
+		.location-detail {
+			font-size: 0.625rem;
+		}
+	}
+
 	@media (max-width: 1024px) {
 		.hero-sidebar {
 			position: relative;

@@ -38,12 +38,7 @@
 
 <style>
 	.section {
-		background: rgba(255, 255, 255, 0.7);
-		backdrop-filter: blur(8px);
-		border-radius: 1rem;
-		border: 1px solid var(--color-border-light);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-		scroll-margin-top: 100px; /* Account for fixed nav */
 	}
 
 	.dev-notice {
