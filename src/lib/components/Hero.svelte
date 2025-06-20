@@ -70,7 +70,6 @@
 		width: 25%;
 		height: 100vh;
 		background: var(--color-bg);
-		border-right: 1px solid var(--color-border-light);
 		z-index: var(--z-sticky);
 		overflow-y: auto;
 	}

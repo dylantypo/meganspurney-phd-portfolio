@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Brain } from '@lucide/svelte';
 	import { gsap } from 'gsap';
-	import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+	import { MorphSVGPlugin } from 'gsap/dist/MorphSVGPlugin';
 
 	gsap.registerPlugin(MorphSVGPlugin);
 
