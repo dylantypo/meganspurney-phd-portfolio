@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { ExternalLink, FileText, Calendar } from '@lucide/svelte';
+	import { ExternalLink, Files, Calendar } from '@lucide/svelte';
 </script>
 
-<section class="publications">
+<section class="publications" id="publications-anchor">
 	<div class="container">
-		<div class="header">
-			<FileText size={28} />
+		<div class="header" id="publications-header">
+			<Files size={28} />
 			<h2>Publications</h2>
 		</div>
 
@@ -80,8 +80,8 @@
 <style>
 	.publications {
 		padding: var(--spacing-16) var(--spacing-6);
-		background: var(--color-bg-secondary);
-		border-radius: 1.5rem;
+		background: var(--color-bg);
+		border-radius: var(--radius-2xl);
 	}
 
 	.container {

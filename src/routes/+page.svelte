@@ -1,10 +1,35 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import AboutMe from '$lib/components/AboutMe.svelte';
 	import Research from '$lib/components/Research.svelte';
 	import Posters from '$lib/components/Posters.svelte';
 	import Publications from '$lib/components/Publications.svelte';
 	import Resume from '$lib/components/Resume.svelte';
+
+	onMount(() => {
+		// Reset scroll position on page load to prevent browser restore issues
+		if (window.location.hash === '' || window.location.hash === '#') {
+			window.scrollTo(0, 0);
+		}
+		
+		// If there's a hash, ensure proper positioning after layout settles
+		if (window.location.hash) {
+			setTimeout(() => {
+				const element = document.getElementById(window.location.hash.substring(1));
+				if (element) {
+					const navHeight = 65;
+					const buffer = 20;
+					const elementTop = element.getBoundingClientRect().top + window.scrollY;
+					
+					window.scrollTo({
+						top: elementTop - navHeight - buffer,
+						behavior: 'smooth'
+					});
+				}
+			}, 100);
+		}
+	});
 </script>
 
 <Hero />
@@ -25,7 +50,7 @@
 	<Publications />
 </section>
 
-<section id="resume" class="section resume-section">
+<section id="resume" class="section">
 	<Resume />
 </section>
 
@@ -38,9 +63,9 @@
 
 <style>
 	.section {
-		margin-bottom: 8rem;
+		margin-bottom: 6rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-		border-radius: 1.5rem;
+		border-radius: var(--radius-2xl);
 	}
 
 	.dev-notice {
@@ -58,10 +83,6 @@
 		font-size: 1.2rem;
 		color: var(--color-secondary);
 		font-weight: 500;
-	}
-
-	.resume-section {
-		padding: 1.5rem;
 	}
 
 	@media (max-width: 1024px) {

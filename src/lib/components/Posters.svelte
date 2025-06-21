@@ -1,22 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { ExternalLink, Presentation, Calendar, MapPin } from '@lucide/svelte';
-
-	let postersSection = $state<HTMLElement>();
-
-	onMount(() => {
-		// Simple fade-in for entire section
-		if (postersSection) {
-			postersSection.style.opacity = '0';
-			
-			requestAnimationFrame(() => {
-				if (postersSection) {
-					postersSection.style.transition = 'opacity 0.3s ease';
-					postersSection.style.opacity = '1';
-				}
-			});
-		}
-	});
 
 	const postersData = [
 		{
@@ -117,7 +100,7 @@
 	];
 </script>
 
-<section bind:this={postersSection} class="posters">
+<section class="posters">
 	<div class="container">
 		<header class="posters-header">
 			<div class="header-icon">
@@ -177,6 +160,7 @@
 		padding: var(--spacing-16) var(--spacing-12);
 		background: var(--color-bg);
 		scroll-margin-top: 100px;
+		border-radius: var(--radius-2xl);
 	}
 
 	.container {

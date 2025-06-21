@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Download, ExternalLink } from '@lucide/svelte';
+	import { Download, FileText, ExternalLink } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
 	let isMobile = $state(false);
@@ -25,63 +25,99 @@
 	});
 </script>
 
-<div class="resume-wrapper" class:loaded={isLoaded}>
-	{#if isMobile}
-		<!-- Mobile: Show download links instead of iframe -->
-		<div class="mobile-resume">
-			<div class="resume-preview">
-				<div class="resume-icon">
-					<Download size={48} />
+<section class="resume">
+	<div class="container">
+		<header class="resume-header">
+			<div class="header-icon">
+				<FileText size={32} />
+			</div>
+			<h2>Resume</h2>
+		</header>
+
+		<div class="resume-wrapper" class:loaded={isLoaded}>
+			{#if isMobile}
+				<div class="mobile-resume">
+					<div class="resume-preview">
+						<div class="resume-icon">
+							<Download size={48} />
+						</div>
+						<h3>Download Resume</h3>
+						<p>View my complete academic and research background</p>
+					</div>
+
+					<div class="download-actions">
+						<a
+							href="/MeganSpurney_CV_EndOf2024.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn-primary"
+						>
+							<ExternalLink size={16} />
+							View PDF
+						</a>
+						<a href="/MeganSpurney_CV_EndOf2024.pdf" download class="btn-secondary">
+							<Download size={16} />
+							Download
+						</a>
+					</div>
 				</div>
-				<h3>Download Resume</h3>
-				<p>View my complete academic and research background</p>
-			</div>
+			{:else}
+				<!-- Updated desktop version -->
+				<div class="resume-container">
+					<iframe
+						src="/MeganSpurney_CV_EndOf2024.pdf#view=FitH"
+						title="Megan Spurney Resume"
+						class="resume-iframe"
+						loading="lazy"
+					></iframe>
 
-			<div class="download-actions">
-				<a
-					href="/MeganSpurney_CV_EndOf2024.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="btn-primary"
-				>
-					<ExternalLink size={16} />
-					View PDF
-				</a>
-				<a href="/MeganSpurney_CV_EndOf2024.pdf" download class="btn-secondary">
-					<Download size={16} />
-					Download
-				</a>
-			</div>
+					<div class="resume-fallback">
+						<p>
+							Unable to display PDF?
+							<a href="/MeganSpurney_CV_EndOf2024.pdf" target="_blank" rel="noopener noreferrer">
+								Open in new tab
+							</a>
+						</p>
+					</div>
+				</div>
+			{/if}
 		</div>
-	{:else}
-		<!-- Desktop: Clean PDF viewer with default controls -->
-		<div class="resume-container">
-			<iframe
-				src="/MeganSpurney_CV_EndOf2024.pdf#view=FitH"
-				title="Megan Spurney Resume"
-				class="resume-iframe"
-				loading="lazy"
-			></iframe>
-
-			<div class="resume-fallback">
-				<p>
-					Unable to display PDF?
-					<a href="/MeganSpurney_CV_EndOf2024.pdf" target="_blank" rel="noopener noreferrer">
-						Open in new tab
-					</a>
-				</p>
-			</div>
-		</div>
-	{/if}
-</div>
+	</div>
+</section>
 
 <style>
+	.resume {
+		padding: var(--spacing-16) var(--spacing-6);
+		background: var(--color-bg);
+		scroll-margin-top: 100px;
+	}
+
+	.container {
+		max-width: 56rem;
+		margin: 0 auto;
+	}
+
+	.resume-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-3);
+		margin-bottom: var(--spacing-12);
+		color: var(--color-primary);
+	}
+
+	.resume-header h2 {
+		font-size: var(--font-size-3xl);
+		font-weight: var(--font-weight-semibold);
+		margin: 0;
+	}
 	/* Desktop PDF Viewer */
 	.resume-container {
 		position: relative;
 		width: 100%;
 		height: 85vh;
 		min-height: 700px;
+		max-width: 56rem;
+		margin: 0 auto;
 		border-radius: var(--radius-lg);
 		overflow: hidden;
 		background: var(--color-bg-secondary);

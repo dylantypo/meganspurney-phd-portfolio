@@ -1,23 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { MapPin, Github, GraduationCap } from '@lucide/svelte';
-
-	let heroSection: HTMLElement;
-
-	onMount(() => {
-		if (heroSection) {
-			// Use opacity-only animation to avoid layout shifts
-			heroSection.style.opacity = '0';
-
-			requestAnimationFrame(() => {
-				heroSection.style.transition = 'opacity 0.8s ease';
-				heroSection.style.opacity = '1';
-			});
-		}
-	});
 </script>
 
-<aside bind:this={heroSection} class="hero-sidebar">
+<aside class="hero-sidebar">
 	<div class="sidebar-content">
 		<div class="profile-card">
 			<div class="profile-image">
@@ -84,7 +69,7 @@
 		text-align: center;
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
-		border-radius: 1.5rem;
+		border-radius: var(--radius-2xl);
 		padding: 2rem 1.5rem;
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -98,9 +83,16 @@
 		height: 21rem;
 		margin: 0 auto 1.5rem;
 		border-radius: 1.25rem;
-		background: var(--color-secondary);
-		padding: 0;
-		overflow: visible;
+		padding: 4px;
+		background: linear-gradient(
+			45deg,
+			rgba(171, 91, 236, 0.6),
+			rgba(224, 59, 246, 0.4),
+			rgba(185, 16, 114, 0.4),
+			rgba(171, 91, 236, 0.6)
+		);
+		background-size: 300% 300%;
+		animation: neuralFlow 8s ease-in-out infinite;
 	}
 
 	.profile-image img {
@@ -108,11 +100,42 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: center top;
-		border-radius: 1.25rem;
-		box-shadow: 
-			0 0 0px 16px rgba(255, 255, 255, 0.075),
-			0 8px 32px rgba(171, 91, 236, 0.38),
-			0 4px 64px rgba(0, 0, 0, 0.25);
+		border-radius: 1rem;
+		position: relative;
+		z-index: 2;
+		display: block;
+	}
+
+	@keyframes neuralFlow {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		25% {
+			background-position: 100% 25%;
+		}
+		50% {
+			background-position: 50% 100%;
+		}
+		75% {
+			background-position: 25% 0%;
+		}
+	}
+
+	@keyframes neuralPulse {
+		0%,
+		100% {
+			transform: scale(1);
+			opacity: 0.15;
+		}
+		33% {
+			transform: scale(1.008);
+			opacity: 0.25;
+		}
+		66% {
+			transform: scale(1.012);
+			opacity: 0.2;
+		}
 	}
 	.name {
 		font-size: 1.75rem;
@@ -219,8 +242,6 @@
 			position: relative;
 			width: 100%;
 			height: auto;
-			border-right: none;
-			border-bottom: 1px solid var(--color-border-light);
 		}
 
 		.sidebar-content {

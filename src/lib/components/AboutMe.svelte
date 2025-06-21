@@ -1,24 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { ExternalLink } from '@lucide/svelte';
-
-	let aboutSection: HTMLElement;
-
-	onMount(() => {
-		if (aboutSection) {
-			aboutSection.style.opacity = '0';
-			aboutSection.style.transform = 'translateY(30px)';
-
-			requestAnimationFrame(() => {
-				aboutSection.style.transition = 'opacity 1s ease, transform 1s ease';
-				aboutSection.style.opacity = '1';
-				aboutSection.style.transform = 'translateY(0)';
-			});
-		}
-	});
 </script>
 
-<section bind:this={aboutSection} class="about">
+<section class="about">
 	<div class="container">
 		<div class="content-card">
 			<h2>About Me</h2>
@@ -100,7 +84,7 @@
 	.about {
 		background: var(--color-bg);
 		padding: 2rem 1rem;
-		border-radius: 1.5rem;
+		border-radius: var(--radius-2xl);
 	}
 
 	.container {
@@ -112,7 +96,7 @@
 	.content-card {
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
-		border-radius: 1.5rem;
+		border-radius: var(--radius-2xl);
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 		margin-bottom: 2rem;

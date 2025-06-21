@@ -21,7 +21,7 @@
 	.main-content {
 		margin-left: 25%;
 		padding: 2rem;
-		padding-top: calc(65px + 1.25rem); /* Account for fixed nav height + padding */
+		padding-top: calc(65px + 1.25rem);
 		min-height: 100dvh;
 	}
 
