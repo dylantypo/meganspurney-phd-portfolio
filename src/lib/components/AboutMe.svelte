@@ -13,7 +13,7 @@
 					<a href="https://psychology.northwestern.edu/graduate/program-areas/cognitive-affective-neuroscience/" target="_blank" rel="noopener">
 						Cognitive and Affective Neuroscience <ExternalLink size={14} />
 					</a> 
-					Ph.D. Student in the Department of Psychology at Northwestern University. I am working with 
+					PhD Student in the Department of Psychology at Northwestern University. I am working with 
 					<a href="https://psychology.northwestern.edu/people/faculty/core/profiles/katie-insel.html" target="_blank" rel="noopener">
 						Dr. Katie Insel <ExternalLink size={14} />
 					</a> 
