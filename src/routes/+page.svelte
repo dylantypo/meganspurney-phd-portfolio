@@ -8,26 +8,29 @@
 	import Resume from '$lib/components/Resume.svelte';
 
 	onMount(() => {
-		// Reset scroll position on page load to prevent browser restore issues
+		// Reset scroll position on page load
 		if (window.location.hash === '' || window.location.hash === '#') {
 			window.scrollTo(0, 0);
 		}
-		
-		// If there's a hash, ensure proper positioning after layout settles
+
+		// Handle hash navigation on initial load
 		if (window.location.hash) {
+			// Wait for layout to fully settle
 			setTimeout(() => {
 				const element = document.getElementById(window.location.hash.substring(1));
 				if (element) {
-					const navHeight = 65;
-					const buffer = 20;
+					// Use same logic as nav for consistency
 					const elementTop = element.getBoundingClientRect().top + window.scrollY;
-					
+					const isMobile = window.innerWidth <= 1024;
+					const offset = isMobile ? 85 : 100;
+					const targetPosition = Math.max(0, elementTop - offset);
+
 					window.scrollTo({
-						top: elementTop - navHeight - buffer,
+						top: targetPosition,
 						behavior: 'smooth'
 					});
 				}
-			}, 100);
+			}, 500); // Longer delay for complex layouts
 		}
 	});
 </script>
@@ -56,7 +59,7 @@
 
 <section class="dev-notice">
 	<p>
-		Site in active development. <br>
+		Site in active development. <br />
 		© Megan Spurney 2025
 	</p>
 </section>
@@ -86,7 +89,8 @@
 	}
 
 	@media (max-width: 1024px) {
-		.section, .dev-notice {
+		.section,
+		.dev-notice {
 			margin-bottom: 2rem;
 			padding: 1.5rem;
 			scroll-margin-top: 80px;

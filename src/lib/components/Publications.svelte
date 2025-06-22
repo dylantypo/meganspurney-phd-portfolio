@@ -2,9 +2,9 @@
 	import { ExternalLink, Files, Calendar } from '@lucide/svelte';
 </script>
 
-<section class="publications" id="publications-anchor">
+<section class="publications">
 	<div class="container">
-		<div class="header" id="publications-header">
+		<div class="header">
 			<Files size={28} />
 			<h2>Publications</h2>
 		</div>

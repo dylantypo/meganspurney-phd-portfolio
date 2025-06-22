@@ -9,7 +9,7 @@
 	let navElement: HTMLElement;
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
-	let activeSection = $state('About Me');
+	let activeSection = $state('');
 
 	const navItems = [
 		{ label: 'About Me', href: '#about' },
@@ -20,29 +20,71 @@
 	];
 
 	onMount(() => {
+		const setInitialSection = () => {
+			const sections = navItems.map((item) => item.href.substring(1));
+			const threshold = 100;
+			let bestSection = 'About Me';
+
+			for (let i = sections.length - 1; i >= 0; i--) {
+				const sectionId = sections[i];
+				const element = document.getElementById(sectionId);
+
+				if (element) {
+					const rect = element.getBoundingClientRect();
+					if (rect.top <= threshold && rect.bottom > threshold + 50) {
+						bestSection = navItems[i].label;
+						break;
+					}
+				}
+			}
+
+			activeSection = bestSection;
+			console.log(`🎯 Initial section set to: ${bestSection}`);
+		};
+
+		// Set initial section after a brief delay for layout
+		setTimeout(setInitialSection, 100);
+
 		const handleScroll = () => {
 			const newScrolled = window.scrollY > 20;
 			if (newScrolled !== scrolled) {
 				scrolled = newScrolled;
 			}
 
-			// Update active section based on scroll position
 			const sections = navItems.map((item) => item.href.substring(1));
 			let currentSection = 'About Me';
 
-			for (const sectionId of sections) {
+			// Simple approach: find the section whose top is closest to but above the threshold
+			const threshold = 100;
+			let bestSection = 'About Me';
+			let bestDistance = Infinity;
+
+			for (let i = sections.length - 1; i >= 0; i--) {
+				const sectionId = sections[i];
 				const element = document.getElementById(sectionId);
+
 				if (element) {
 					const rect = element.getBoundingClientRect();
-					if (rect.top <= 100 && rect.bottom >= 100) {
-						currentSection =
-							navItems.find((item) => item.href === `#${sectionId}`)?.label || 'About Me';
-						break;
+
+					// If section top is above threshold and bottom is below threshold
+					if (rect.top <= threshold && rect.bottom > threshold + 50) {
+						bestSection = navItems[i].label;
+						break; // Take the first match (going backwards = priority to later sections)
+					}
+
+					// Fallback: find closest section to threshold
+					const distance = Math.abs(rect.top - threshold);
+					if (rect.bottom > 0 && distance < bestDistance) {
+						bestDistance = distance;
+						bestSection = navItems[i].label;
 					}
 				}
 			}
 
+			currentSection = bestSection;
+
 			if (currentSection !== activeSection) {
+				console.log(`🔄 Updating activeSection: "${activeSection}" → "${currentSection}"`);
 				activeSection = currentSection;
 			}
 		};
@@ -68,6 +110,25 @@
 		};
 
 		window.addEventListener('scroll', handleScroll, { passive: true });
+		setTimeout(() => {
+			console.log('🔍 ON LOAD - Checking all sections:');
+			const sections = navItems.map((item) => item.href.substring(1));
+
+			sections.forEach((sectionId) => {
+				const element = document.getElementById(sectionId);
+				if (element) {
+					const rect = element.getBoundingClientRect();
+					console.log(`📍 ${sectionId}:`, {
+						found: !!element,
+						top: rect.top,
+						bottom: rect.bottom,
+						height: rect.height
+					});
+				} else {
+					console.log(`❌ ${sectionId}: NOT FOUND`);
+				}
+			});
+		}, 1000);
 		animateNav();
 		setTimeout(animateBrain, 300);
 
@@ -219,18 +280,30 @@
 
 	const handleNavClick = (href: string) => {
 		if (mobileMenuOpen) {
-			// If menu is open, close it with full animation
 			toggleMobileMenu();
 		}
 
-		// Smooth scroll to section
 		const sectionId = href.substring(1);
 		const element = document.getElementById(sectionId);
 
 		if (element) {
-			const offsetTop = element.offsetTop - 90;
+			// Get element position relative to document
+			const elementTop = element.getBoundingClientRect().top + window.scrollY;
+
+			// Dynamic offset based on layout
+			const isMobile = window.innerWidth <= 1024;
+			let offset = isMobile ? 85 : 100;
+
+			// For desktop, account for the fact that content is offset by sidebar
+			if (!isMobile) {
+				// Main content has margin-left: 25%, so we need to adjust
+				offset = 100; // Keep existing desktop offset
+			}
+
+			const targetPosition = Math.max(0, elementTop - offset);
+
 			window.scrollTo({
-				top: offsetTop,
+				top: targetPosition,
 				behavior: 'smooth'
 			});
 		}
@@ -241,14 +314,11 @@
 			toggleMobileMenu();
 		}
 
-		const aboutElement = document.getElementById('about');
-		if (aboutElement) {
-			const offsetTop = aboutElement.offsetTop - 90;
-			window.scrollTo({
-				top: offsetTop,
-				behavior: 'smooth'
-			});
-		}
+		// Always scroll to top for brand click
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
 	};
 </script>
 
