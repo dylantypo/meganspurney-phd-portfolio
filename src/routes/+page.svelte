@@ -87,6 +87,7 @@
 
 	@media (max-width: 1024px) {
 		.section, .dev-notice {
+			margin-bottom: 2rem;
 			padding: 1.5rem;
 			scroll-margin-top: 80px;
 		}

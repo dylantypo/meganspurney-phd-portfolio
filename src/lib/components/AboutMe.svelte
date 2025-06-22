@@ -99,7 +99,7 @@
 		border-radius: var(--radius-2xl);
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-		margin-bottom: 2rem;
+		margin-bottom: 0.25rem;
 	}
 
 	h2 {

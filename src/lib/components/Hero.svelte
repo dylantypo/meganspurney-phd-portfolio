@@ -245,7 +245,7 @@
 		}
 
 		.sidebar-content {
-			padding: 2rem 1.5rem;
+			padding: 1rem 1.5rem;
 			height: auto;
 		}
 
