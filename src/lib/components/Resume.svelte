@@ -29,7 +29,7 @@
 	<div class="container">
 		<header class="resume-header">
 			<div class="header-icon">
-				<FileText size={32} />
+				<FileText size={28} />
 			</div>
 			<h2>Resume</h2>
 		</header>
@@ -90,6 +90,7 @@
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg);
 		scroll-margin-top: 100px;
+		border-radius: var(--radius-2xl);
 	}
 
 	.container {
@@ -110,6 +111,7 @@
 		font-weight: var(--font-weight-semibold);
 		margin: 0;
 	}
+
 	/* Desktop PDF Viewer */
 	.resume-container {
 		position: relative;
@@ -234,6 +236,16 @@
 		border-color: var(--color-primary);
 		transform: translateY(-2px);
 		box-shadow: 0 4px 15px rgba(24, 24, 27, 0.2);
+	}
+
+	@media (max-width: 768px) {
+		.resume {
+			padding: var(--spacing-12) var(--spacing-4);
+		}
+
+		.resume-header h2 {
+			font-size: var(--font-size-3xl);
+		}
 	}
 
 	@media (min-width: 1024px) and (max-width: 1200px) {

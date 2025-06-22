@@ -81,6 +81,7 @@
 	.publications {
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg);
+		scroll-margin-top: 100px;
 		border-radius: var(--radius-2xl);
 	}
 
@@ -223,21 +224,21 @@
 		box-shadow: var(--shadow-lg);
 	}
 
-	@media (min-width: 768px) {
+	@media (max-width: 768px) {
 		.publications {
-			padding: var(--spacing-20) var(--spacing-8);
+			padding: var(--spacing-12) var(--spacing-4);
 		}
 
 		.header h2 {
-			font-size: var(--font-size-4xl);
+			font-size: var(--font-size-3xl);
 		}
 
 		.title {
-			font-size: var(--font-size-2xl);
+			font-size: var(--font-size-lg);
 		}
 
 		.authors, .journal, .description {
-			font-size: var(--font-size-base);
+			font-size: var(--font-size-sm);
 		}
 	}
 </style>
