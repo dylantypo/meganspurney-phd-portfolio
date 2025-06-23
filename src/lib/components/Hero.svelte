@@ -6,6 +6,7 @@
 	<div class="sidebar-content">
 		<div class="profile-card">
 			<div class="profile-image">
+				<div class="border-blur"></div>
 				<img src="/pics/Grad_Pic.jpg" alt="Megan Spurney" />
 			</div>
 
@@ -51,7 +52,6 @@
 		left: 0;
 		top: 0;
 		width: 25%;
-		height: 100dvh;
 		background: var(--color-bg);
 		z-index: var(--z-sticky);
 		overflow-y: auto;
@@ -60,6 +60,7 @@
 	.sidebar-content {
 		padding: 2rem 1.5rem;
 		height: 100%;
+		min-height: 100dvh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -86,13 +87,23 @@
 		padding: 4px;
 		background: linear-gradient(
 			45deg,
-			rgba(171, 91, 236, 0.6),
-			rgba(224, 59, 246, 0.4),
-			rgba(185, 16, 114, 0.4),
-			rgba(171, 91, 236, 0.6)
+			rgba(183, 91, 236, 0.75),
+			rgba(248, 145, 205, 0.55),
+			rgba(171, 60, 223, 0.55),
+			rgba(192, 124, 247, 0.75)
 		);
 		background-size: 300% 300%;
-		animation: neuralFlow 8s ease-in-out infinite;
+		animation: neuralFlow 30s ease-in-out infinite;
+	}
+
+	.border-blur {
+		position: absolute;
+		inset: 0;
+		border-radius: var(--radius-2xl);
+		background: inherit;
+		filter: blur(18px);
+		opacity: 1.5;
+		z-index: 1;
 	}
 
 	.profile-image img {
@@ -122,21 +133,6 @@
 		}
 	}
 
-	@keyframes neuralPulse {
-		0%,
-		100% {
-			transform: scale(1);
-			opacity: 0.15;
-		}
-		33% {
-			transform: scale(1.008);
-			opacity: 0.25;
-		}
-		66% {
-			transform: scale(1.012);
-			opacity: 0.2;
-		}
-	}
 	.name {
 		font-size: 1.75rem;
 		font-weight: 600;
