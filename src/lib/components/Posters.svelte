@@ -159,7 +159,7 @@
 	.posters {
 		padding: var(--spacing-16) var(--spacing-12);
 		background: var(--color-bg);
-		scroll-margin-top: 100px;
+		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);
 	}
 
@@ -332,7 +332,7 @@
 	@media (max-width: 768px) {
 		.posters {
 			padding: var(--spacing-12) var(--spacing-4);
-			scroll-margin-top: 80px;
+			scroll-margin-top: var(--scroll-offset-mobile);
 		}
 
 		.timeline::before {

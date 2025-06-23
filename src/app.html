@@ -19,8 +19,14 @@
 		<!-- Core Meta -->
 		<title>Megan Spurney - Neuroscience PhD Student</title>
 		<meta name="title" content="Megan Spurney" />
-		<meta name="description" content="Megan Spurney is a PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development, hormonal influences on cognition, and mental health trajectories." />
-		<meta name="keywords" content="neuroscience, cognitive science, brain research, adolescent development, Northwestern University, PhD student, fMRI, brain imaging, mental health, psychology research" />
+		<meta
+			name="description"
+			content="Megan Spurney is a PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development, hormonal influences on cognition, and mental health trajectories."
+		/>
+		<meta
+			name="keywords"
+			content="neuroscience, cognitive science, brain research, adolescent development, Northwestern University, PhD student, fMRI, brain imaging, mental health, psychology research"
+		/>
 		<meta name="author" content="Megan Spurney" />
 		<link rel="icon" href="/pics/favicon.ico" />
 		<link rel="canonical" href="https://meganspurney.com" />
@@ -38,7 +44,10 @@
 		<meta property="og:type" content="profile" />
 		<meta property="og:url" content="https://meganspurney.com" />
 		<meta property="og:title" content="Megan Spurney - PhD Student & Researcher" />
-		<meta property="og:description" content="PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development and mental health." />
+		<meta
+			property="og:description"
+			content="PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development and mental health."
+		/>
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="Megan Spurney - Professional headshot" />
@@ -47,7 +56,10 @@
 		<meta property="profile:last_name" content="Spurney" />
 
 		<!-- SEO & Validation -->
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
 		<meta name="googlebot" content="index, follow" />
 		<meta name="displaydate" content="2025-01-29" />
 		<link rel="author" href="https://meganspurney.com" />
@@ -81,6 +93,21 @@
 					"name": "Cornell University"
 				}
 			}
+		</script>
+
+		<!-- Fix Scroll History Bug -->
+		<script>
+			// Prevent scroll restoration BEFORE any framework code runs
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+
+			// Force immediate scroll reset on page load
+			window.addEventListener('beforeunload', () => {
+				if ('scrollRestoration' in history) {
+					history.scrollRestoration = 'manual';
+				}
+			});
 		</script>
 
 		%sveltekit.head%

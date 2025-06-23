@@ -81,8 +81,8 @@
 	.publications {
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg);
-		scroll-margin-top: 100px;
 		border-radius: var(--radius-2xl);
+		scroll-margin-top: var(--scroll-offset-desktop);
 	}
 
 	.container {
@@ -222,6 +222,12 @@
 		background: rgba(171, 91, 236, 0.9);
 		transform: translateY(-1px);
 		box-shadow: var(--shadow-lg);
+	}
+
+	@media (max-width: 1024px) {
+		.publications {
+			scroll-margin-top: var(--scroll-offset-mobile);
+		}
 	}
 
 	@media (max-width: 768px) {

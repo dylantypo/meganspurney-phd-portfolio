@@ -15,15 +15,24 @@
 
 		// Handle hash navigation on initial load
 		if (window.location.hash) {
+			console.log('🎯 Hash detected on load:', window.location.hash);
 			// Wait for layout to fully settle
 			setTimeout(() => {
 				const element = document.getElementById(window.location.hash.substring(1));
 				if (element) {
+					console.log('🎯 Scrolling to element on page load');
 					// Use same logic as nav for consistency
 					const elementTop = element.getBoundingClientRect().top + window.scrollY;
 					const isMobile = window.innerWidth <= 1024;
 					const offset = isMobile ? 85 : 100;
 					const targetPosition = Math.max(0, elementTop - offset);
+
+					console.log('🎯 Page load scroll:', {
+						elementTop,
+						offset,
+						targetPosition,
+						isMobile
+					});
 
 					window.scrollTo({
 						top: targetPosition,
@@ -79,7 +88,6 @@
 		padding: 2rem;
 		border-radius: 1rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-		scroll-margin-top: 100px;
 	}
 
 	.dev-notice p {
@@ -93,7 +101,6 @@
 		.dev-notice {
 			margin-bottom: 2rem;
 			padding: 1.5rem;
-			scroll-margin-top: 80px;
 		}
 	}
 </style>

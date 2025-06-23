@@ -156,7 +156,7 @@
 	.research {
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg);
-		scroll-margin-top: 100px;
+		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);
 	}
 
@@ -290,7 +290,7 @@
 	@media (max-width: 768px) {
 		.research {
 			padding: var(--spacing-12) var(--spacing-4);
-			scroll-margin-top: 80px;
+			scroll-margin-top: var(--scroll-offset-mobile);
 		}
 
 		.container {

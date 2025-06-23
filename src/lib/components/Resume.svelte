@@ -89,7 +89,7 @@
 	.resume {
 		padding: var(--spacing-16) var(--spacing-6);
 		background: var(--color-bg);
-		scroll-margin-top: 100px;
+		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);
 	}
 

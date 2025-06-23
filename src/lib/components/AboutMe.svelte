@@ -85,6 +85,7 @@
 		background: var(--color-bg);
 		padding: 2rem 1rem;
 		border-radius: var(--radius-2xl);
+		scroll-margin-top: var(--scroll-offset-desktop);
 	}
 
 	.container {

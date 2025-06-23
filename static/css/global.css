@@ -77,7 +77,7 @@
 
 	/* Scroll offset constants */
 	--nav-height: 65px;
-	--scroll-offset-desktop: 100px;
+	--scroll-offset-desktop: 80px;
 	--scroll-offset-mobile: 85px;
 }
 

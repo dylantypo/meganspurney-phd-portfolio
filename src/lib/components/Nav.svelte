@@ -22,8 +22,8 @@
 	onMount(() => {
 		const setInitialSection = () => {
 			const sections = navItems.map((item) => item.href.substring(1));
-			const threshold = 100;
-			let bestSection = 'About Me';
+			const threshold = 80;
+			let bestSection = '';
 
 			for (let i = sections.length - 1; i >= 0; i--) {
 				const sectionId = sections[i];
@@ -39,7 +39,6 @@
 			}
 
 			activeSection = bestSection;
-			console.log(`🎯 Initial section set to: ${bestSection}`);
 		};
 
 		// Set initial section after a brief delay for layout
@@ -52,11 +51,10 @@
 			}
 
 			const sections = navItems.map((item) => item.href.substring(1));
-			let currentSection = 'About Me';
+			let currentSection = '';
 
-			// Simple approach: find the section whose top is closest to but above the threshold
-			const threshold = 100;
-			let bestSection = 'About Me';
+			const threshold = 80;
+			let bestSection = '';
 			let bestDistance = Infinity;
 
 			for (let i = sections.length - 1; i >= 0; i--) {
@@ -84,7 +82,6 @@
 			currentSection = bestSection;
 
 			if (currentSection !== activeSection) {
-				console.log(`🔄 Updating activeSection: "${activeSection}" → "${currentSection}"`);
 				activeSection = currentSection;
 			}
 		};
@@ -109,31 +106,33 @@
 			}
 		};
 
-		window.addEventListener('scroll', handleScroll, { passive: true });
-		setTimeout(() => {
-			console.log('🔍 ON LOAD - Checking all sections:');
-			const sections = navItems.map((item) => item.href.substring(1));
-
-			sections.forEach((sectionId) => {
-				const element = document.getElementById(sectionId);
-				if (element) {
-					const rect = element.getBoundingClientRect();
-					console.log(`📍 ${sectionId}:`, {
-						found: !!element,
-						top: rect.top,
-						bottom: rect.bottom,
-						height: rect.height
-					});
-				} else {
-					console.log(`❌ ${sectionId}: NOT FOUND`);
+		const handleResize = () => {
+			const isNowDesktop = window.innerWidth > 1024;
+			if (isNowDesktop && mobileMenuOpen) {
+				// Force close the mobile menu
+				mobileMenuOpen = false;
+				const menu = navElement?.querySelector('.mobile-menu') as HTMLElement;
+				if (menu) {
+					menu.style.display = 'none';
+					menu.style.visibility = 'hidden';
 				}
-			});
-		}, 1000);
+				const brainButton = navElement?.querySelector('.mobile-brand') as HTMLElement;
+				if (brainButton && brainButton.dataset.originalWidth) {
+					brainButton.style.width = brainButton.dataset.originalWidth;
+					brainButton.style.transform = 'translateX(0)';
+				}
+			}
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
 		animateNav();
 		setTimeout(animateBrain, 300);
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('resize', handleResize);
 		};
 	});
 
@@ -292,13 +291,7 @@
 
 			// Dynamic offset based on layout
 			const isMobile = window.innerWidth <= 1024;
-			let offset = isMobile ? 85 : 100;
-
-			// For desktop, account for the fact that content is offset by sidebar
-			if (!isMobile) {
-				// Main content has margin-left: 25%, so we need to adjust
-				offset = 100; // Keep existing desktop offset
-			}
+			let offset = isMobile ? 85 : 80;
 
 			const targetPosition = Math.max(0, elementTop - offset);
 
