@@ -6,6 +6,7 @@
 	import Posters from '$lib/components/Posters.svelte';
 	import Publications from '$lib/components/Publications.svelte';
 	import Resume from '$lib/components/Resume.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	onMount(() => {
 		// Reset scroll position on page load
@@ -66,11 +67,9 @@
 	<Resume />
 </section>
 
-<section class="dev-notice">
-	<p>
-		Site in active development. <br />
-		© Megan Spurney 2025
-	</p>
+<section id="footer" class="section">
+	<p>Site in active development.</p>
+	<Footer />
 </section>
 
 <style>
@@ -80,25 +79,25 @@
 		border-radius: var(--radius-2xl);
 	}
 
-	.dev-notice {
+	#footer {
 		text-align: center;
 		background: rgba(171, 91, 236, 0.1);
 		border: 1px solid rgba(171, 91, 236, 0.2);
-		margin-bottom: 4rem;
 		padding: 2rem;
 		border-radius: 1rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 	}
 
-	.dev-notice p {
+	#footer p {
 		font-size: 1.2rem;
 		color: var(--color-secondary);
+		padding: 2rem;
 		font-weight: 500;
 	}
 
 	@media (max-width: 1024px) {
 		.section,
-		.dev-notice {
+		#footer {
 			margin-bottom: 2rem;
 			padding: 1.5rem;
 		}

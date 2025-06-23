@@ -13,7 +13,7 @@
 					<a href="https://psychology.northwestern.edu/graduate/program-areas/cognitive-affective-neuroscience/" target="_blank" rel="noopener">
 						Cognitive and Affective Neuroscience <ExternalLink size={14} />
 					</a> 
-					PhD Student in the Department of Psychology at Northwestern University. I am working with 
+					PhD Student in the Department of Psychology at Northwestern University. I work with 
 					<a href="https://psychology.northwestern.edu/people/faculty/core/profiles/katie-insel.html" target="_blank" rel="noopener">
 						Dr. Katie Insel <ExternalLink size={14} />
 					</a> 
@@ -27,9 +27,9 @@
 
 			<div class="text-block">
 				<p>
-					I spent three years following my undergraduate education as a post-baccalaureate fellow at the National Institute of Mental Health. I worked in the 
+					I spent three years following my undergraduate education as a post-baccalaureate fellow at the National Institute of Mental Health. I worked in the Section on 
 					<a href="https://fim.nimh.nih.gov/" target="_blank" rel="noopener">
-						Section on Functional Imaging Methods <ExternalLink size={14} />
+						Functional Imaging Methods <ExternalLink size={14} />
 					</a> 
 					under 
 					<a href="https://www.nimh.nih.gov/research/research-conducted-at-nimh/principal-investigators/peter-bandettini" target="_blank" rel="noopener">
