@@ -243,6 +243,7 @@
 		.sidebar-content {
 			padding: 1rem 1.5rem;
 			height: auto;
+			min-height: 95dvh;
 		}
 
 		.profile-image {

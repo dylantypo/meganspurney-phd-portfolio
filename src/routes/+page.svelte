@@ -76,7 +76,7 @@
 
 <style>
 	.hero-section {
-		margin-bottom: 0;
+		margin: 0;
 	}
 	.section {
 		margin-bottom: 6rem;
