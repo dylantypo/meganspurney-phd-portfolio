@@ -45,7 +45,9 @@
 	});
 </script>
 
-<Hero />
+<section id="home" class="hero-section">
+	<Hero />
+</section>
 
 <section id="about" class="section">
 	<AboutMe />
@@ -73,6 +75,9 @@
 </section>
 
 <style>
+	.hero-section {
+		margin-bottom: 0;
+	}
 	.section {
 		margin-bottom: 6rem;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);

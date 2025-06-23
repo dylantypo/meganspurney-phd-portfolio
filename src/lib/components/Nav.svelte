@@ -307,11 +307,7 @@
 			toggleMobileMenu();
 		}
 
-		// Always scroll to top for brand click
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
+		handleNavClick('#home');
 	};
 </script>
 
