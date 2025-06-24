@@ -86,26 +86,6 @@
 			}
 		};
 
-		const animateNav = () => {
-			gsap.fromTo(
-				navElement,
-				{ y: -10, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.4, ease: 'circ.out' }
-			);
-		};
-
-		const animateBrain = () => {
-			const brain = navElement.querySelector('.brain-icon');
-			if (brain) {
-				gsap.set(brain, { transformOrigin: 'center' });
-				gsap.fromTo(
-					brain,
-					{ scale: 0.8, opacity: 0 },
-					{ scale: 1, opacity: 1, duration: 0.5, ease: 'circ.out' }
-				);
-			}
-		};
-
 		const handleResize = () => {
 			const isNowDesktop = window.innerWidth > 1024;
 			if (isNowDesktop && mobileMenuOpen) {
@@ -134,10 +114,7 @@
 		};
 
 		window.addEventListener('resize', handleResize);
-
 		window.addEventListener('scroll', handleScroll, { passive: true });
-		animateNav();
-		setTimeout(animateBrain, 300);
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
@@ -397,7 +374,6 @@
 		right: 0;
 		z-index: var(--z-fixed);
 		background: transparent;
-		transition: all var(--transition-normal);
 	}
 
 	.nav-container {
@@ -424,7 +400,6 @@
 		font-weight: var(--font-weight-semibold);
 		font-size: var(--font-size-lg);
 		text-decoration: none;
-		transition: all var(--transition-fast);
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
@@ -447,7 +422,6 @@
 		color: var(--color-secondary);
 		display: flex;
 		align-items: center;
-		transition: transform var(--transition-fast);
 	}
 
 	.nav-brand:hover .brain-icon,

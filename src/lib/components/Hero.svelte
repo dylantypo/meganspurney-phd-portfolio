@@ -111,7 +111,7 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: center top;
-		border-radius: 1rem;
+		border-radius: var(--radius-xl);
 		position: relative;
 		z-index: 2;
 		display: block;
@@ -186,7 +186,7 @@
 		padding: 0.5rem 0.75rem;
 		background: rgba(255, 255, 255, 0.5);
 		border: 1px solid var(--color-border-light);
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-2xl);
 		font-size: 0.8rem;
 		font-weight: 500;
 		color: var(--color-text);

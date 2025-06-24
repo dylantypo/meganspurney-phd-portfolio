@@ -150,7 +150,7 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
 		margin: 2rem 0;
-		border-radius: 1rem;
+		border-radius: var(--radius-2xl);
 		overflow: hidden;
 	}
 
@@ -158,7 +158,6 @@
 		width: 100%;
 		height: 200px;
 		object-fit: cover;
-		transition: transform var(--transition-normal);
 	}
 
 	.image-grid img:hover {

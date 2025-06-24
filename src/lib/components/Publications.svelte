@@ -115,7 +115,6 @@
 		padding: var(--spacing-8);
 		border: 1px solid var(--color-border-light);
 		box-shadow: var(--shadow-sm);
-		transition: all var(--transition-normal);
 		position: relative;
 	}
 
@@ -127,12 +126,12 @@
 	.status-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: var(--spacing-1);
-		padding: var(--spacing-1) var(--spacing-3);
+		gap: var(--spacing-2);
+		padding: var(--spacing-2) var(--spacing-3);
 		border-radius: var(--radius-full);
 		font-size: var(--font-size-xs);
 		font-weight: var(--font-weight-medium);
-		margin-bottom: var(--spacing-4);
+		margin-bottom: var(--spacing-5);
 		text-transform: uppercase;
 		letter-spacing: 0.025em;
 	}

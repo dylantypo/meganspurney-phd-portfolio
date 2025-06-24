@@ -242,7 +242,7 @@
 		width: 1rem;
 		height: 1rem;
 		background: var(--color-secondary);
-		border-radius: 50%;
+		border-radius: var(--radius-full);
 		border: 3px solid var(--color-bg);
 	}
 
@@ -260,7 +260,6 @@
 		padding: var(--spacing-6);
 		border: 1px solid var(--color-border-light);
 		box-shadow: var(--shadow-md);
-		transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 	}
 
 	.presentation-header {

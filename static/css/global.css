@@ -76,7 +76,7 @@
 	--z-toast: 1080;
 
 	/* Scroll offset constants */
-	--nav-height: 65px;
+	--nav-height: 60px;
 	--scroll-offset-desktop: 80px;
 	--scroll-offset-mobile: 85px;
 }

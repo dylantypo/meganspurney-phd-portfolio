@@ -213,9 +213,6 @@
 		padding: var(--spacing-8);
 		border: 1px solid var(--color-border-light);
 		box-shadow: var(--shadow-lg);
-		transition:
-			transform var(--transition-normal),
-			box-shadow var(--transition-normal);
 	}
 
 	.project-header {

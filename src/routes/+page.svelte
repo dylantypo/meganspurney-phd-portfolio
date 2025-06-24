@@ -13,35 +13,6 @@
 		if (window.location.hash === '' || window.location.hash === '#') {
 			window.scrollTo(0, 0);
 		}
-
-		// Handle hash navigation on initial load
-		if (window.location.hash) {
-			console.log('🎯 Hash detected on load:', window.location.hash);
-			// Wait for layout to fully settle
-			setTimeout(() => {
-				const element = document.getElementById(window.location.hash.substring(1));
-				if (element) {
-					console.log('🎯 Scrolling to element on page load');
-					// Use same logic as nav for consistency
-					const elementTop = element.getBoundingClientRect().top + window.scrollY;
-					const isMobile = window.innerWidth <= 1024;
-					const offset = isMobile ? 85 : 100;
-					const targetPosition = Math.max(0, elementTop - offset);
-
-					console.log('🎯 Page load scroll:', {
-						elementTop,
-						offset,
-						targetPosition,
-						isMobile
-					});
-
-					window.scrollTo({
-						top: targetPosition,
-						behavior: 'smooth'
-					});
-				}
-			}, 500); // Longer delay for complex layouts
-		}
 	});
 </script>
 
@@ -88,23 +59,22 @@
 		text-align: center;
 		background: rgba(171, 91, 236, 0.1);
 		border: 1px solid rgba(171, 91, 236, 0.2);
-		padding: 2rem;
-		border-radius: 1rem;
+		padding: var(--spacing-8);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 	}
 
 	#footer p {
-		font-size: 1.2rem;
+		font-size: var(--font-size-lg);
 		color: var(--color-secondary);
-		padding: 2rem;
-		font-weight: 500;
+		padding: var(--spacing-8);
+		font-weight: var(--font-weight-medium);
 	}
 
 	@media (max-width: 1024px) {
 		.section,
 		#footer {
-			margin-bottom: 2rem;
-			padding: 1.5rem;
+			margin-bottom: var(--spacing-6);
+			padding: var(--spacing-6);
 		}
 	}
 </style>

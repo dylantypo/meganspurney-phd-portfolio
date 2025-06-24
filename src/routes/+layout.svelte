@@ -13,16 +13,12 @@
 </div>
 
 <style>
-	.app-layout {
-		min-height: 100dvh;
-	}
 
 	/* Main content area when sidebar is present */
 	.main-content {
 		margin-left: 25%;
-		padding: 2rem;
-		padding-top: calc(65px + 1.25rem);
-		min-height: 100dvh;
+		padding: var(--spacing-10);
+		padding-top: calc(55px + 1.25rem);
 	}
 
 	/* Mobile responsive */
