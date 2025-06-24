@@ -40,20 +40,15 @@
 
 <style>
 	.resume {
-		padding: var(--spacing-16) var(--spacing-6);
+		padding: var(--spacing-8) var(--spacing-6);
 		background: var(--color-bg);
 		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);
-		/* Fixed height - no layout shifts possible */
-		min-height: 400px;
+		display: flex;
 	}
 
 	.container {
-		max-width: 56rem;
 		margin: 0 auto;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
 	}
 
 	.resume-header {
@@ -67,17 +62,17 @@
 	.resume-header h2 {
 		font-size: var(--font-size-3xl);
 		font-weight: var(--font-weight-semibold);
-		margin: 0;
 	}
 
 	.resume-content {
-		text-align: center;
-		padding: var(--spacing-12) var(--spacing-6);
+		max-width: 56rem;
+		padding: var(--spacing-8) var(--spacing-4);
 		background: rgba(255, 255, 255, 0.8);
 		backdrop-filter: blur(8px);
 		border-radius: var(--radius-2xl);
 		border: 1px solid var(--color-border-light);
 		box-shadow: var(--shadow-lg);
+		margin: 0 auto;
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -109,7 +104,8 @@
 		color: var(--color-text-light);
 		font-size: var(--font-size-lg);
 		margin: 0;
-		max-width: 400px;
+		text-align: center;
+		max-width: 18rem;
 	}
 
 	.resume-actions {

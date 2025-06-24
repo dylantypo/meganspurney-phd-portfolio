@@ -18,7 +18,7 @@
 	.main-content {
 		margin-left: 25%;
 		padding: var(--spacing-10);
-		padding-top: calc(55px + 1.25rem);
+		padding-top: calc(var(--nav-height) + var(--spacing-5));
 	}
 
 	/* Mobile responsive */
@@ -26,6 +26,7 @@
 		.main-content {
 			margin-left: 0;
 			padding: 1rem;
+			padding-top: calc(var(--nav-height));
 		}
 	}
 </style>

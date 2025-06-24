@@ -244,6 +244,7 @@
 			padding: 1rem 1.5rem;
 			height: auto;
 			min-height: 95dvh;
+			padding-top: 0;
 		}
 
 		.profile-image {
