@@ -1,28 +1,5 @@
 <script lang="ts">
 	import { Download, FileText, ExternalLink } from '@lucide/svelte';
-	import { onMount } from 'svelte';
-
-	let isMobile = $state(false);
-	let isLoaded = $state(false);
-
-	onMount(() => {
-		// Check if mobile on mount
-		const checkMobile = () => {
-			isMobile = window.innerWidth < 1024;
-		};
-
-		checkMobile();
-		window.addEventListener('resize', checkMobile);
-
-		// Set loaded state for smooth transitions
-		setTimeout(() => {
-			isLoaded = true;
-		}, 100);
-
-		return () => {
-			window.removeEventListener('resize', checkMobile);
-		};
-	});
 </script>
 
 <section class="resume">
@@ -34,53 +11,29 @@
 			<h2>Resume</h2>
 		</header>
 
-		<div class="resume-wrapper" class:loaded={isLoaded}>
-			{#if isMobile}
-				<div class="mobile-resume">
-					<div class="resume-preview">
-						<div class="resume-icon">
-							<Download size={48} />
-						</div>
-						<h3>Download Resume</h3>
-						<p>View my complete academic and research background</p>
-					</div>
-
-					<div class="download-actions">
-						<a
-							href="/MeganSpurney_CV_EndOf2024.pdf"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="btn-primary"
-						>
-							<ExternalLink size={16} />
-							View PDF
-						</a>
-						<a href="/MeganSpurney_CV_EndOf2024.pdf" download class="btn-secondary">
-							<Download size={16} />
-							Download
-						</a>
-					</div>
+		<div class="resume-content">
+			<div class="resume-preview">
+				<div class="resume-icon">
+					<FileText size={48} />
 				</div>
-			{:else}
-				<!-- Updated desktop version -->
-				<div class="resume-container">
-					<iframe
-						src="/MeganSpurney_CV_EndOf2024.pdf#view=FitH"
-						title="Megan Spurney Resume"
-						class="resume-iframe"
-						loading="lazy"
-					></iframe>
+				<p>View my complete academic and research background</p>
+			</div>
 
-					<div class="resume-fallback">
-						<p>
-							Unable to display PDF?
-							<a href="/MeganSpurney_CV_EndOf2024.pdf" target="_blank" rel="noopener noreferrer">
-								Open in new tab
-							</a>
-						</p>
-					</div>
-				</div>
-			{/if}
+			<div class="resume-actions">
+				<a
+					href="/MeganSpurney_CV_EndOf2024.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn-primary"
+				>
+					<ExternalLink size={16} />
+					View PDF
+				</a>
+				<a href="/MeganSpurney_CV_EndOf2024.pdf" download class="btn-secondary">
+					<Download size={16} />
+					Download
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -91,11 +44,16 @@
 		background: var(--color-bg);
 		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);
+		/* Fixed height - no layout shifts possible */
+		min-height: 400px;
 	}
 
 	.container {
 		max-width: 56rem;
 		margin: 0 auto;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.resume-header {
@@ -112,62 +70,30 @@
 		margin: 0;
 	}
 
-	/* Desktop PDF Viewer */
-	.resume-container {
-		position: relative;
-		width: 100%;
-		height: 85vh;
-		min-height: 700px;
-		max-width: 56rem;
-		margin: 0 auto;
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		background: var(--color-bg-secondary);
-		border: 1px solid var(--color-border);
-		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-	}
-
-	.resume-iframe {
-		width: 100%;
-		height: 100%;
-		border: none;
-		background: white;
-	}
-
-	.resume-fallback {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+	.resume-content {
 		text-align: center;
-		z-index: -1;
-		padding: 2rem;
-		opacity: 0.7;
-	}
-
-	.resume-fallback a {
-		color: var(--color-secondary);
-		text-decoration: underline;
-		font-weight: var(--font-weight-medium);
-		transition: opacity var(--transition-fast);
-	}
-
-	.resume-fallback a:hover {
-		opacity: 0.8;
-	}
-
-	/* Mobile Resume View */
-	.mobile-resume {
-		text-align: center;
-		padding: 3rem 1.5rem;
+		padding: var(--spacing-12) var(--spacing-6);
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(8px);
+		border-radius: var(--radius-2xl);
+		border: 1px solid var(--color-border-light);
+		box-shadow: var(--shadow-lg);
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: var(--spacing-8);
 	}
 
 	.resume-preview {
-		margin-bottom: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-4);
 	}
 
 	.resume-icon {
-		margin: 0 auto 1rem;
 		width: 80px;
 		height: 80px;
 		background: var(--color-secondary);
@@ -176,25 +102,21 @@
 		align-items: center;
 		justify-content: center;
 		color: white;
+		margin-bottom: var(--spacing-2);
 	}
 
-	.mobile-resume h3 {
-		font-size: 1.5rem;
-		margin-bottom: 0.5rem;
-		color: var(--color-primary);
-	}
-
-	.mobile-resume p {
+	.resume-content p {
 		color: var(--color-text-light);
-		margin-bottom: 2rem;
+		font-size: var(--font-size-lg);
+		margin: 0;
+		max-width: 400px;
 	}
 
-	.download-actions {
+	.resume-actions {
 		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		max-width: 280px;
-		margin: 0 auto;
+		gap: var(--spacing-4);
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.btn-primary,
@@ -202,13 +124,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.5rem;
-		padding: 1rem 1.5rem;
+		gap: var(--spacing-2);
+		padding: var(--spacing-4) var(--spacing-6);
 		border-radius: var(--radius-lg);
 		text-decoration: none;
 		font-weight: var(--font-weight-medium);
+		font-size: var(--font-size-base);
 		transition: all var(--transition-fast);
 		border: 2px solid;
+		min-width: 140px;
 	}
 
 	.btn-primary {
@@ -238,20 +162,30 @@
 		box-shadow: 0 4px 15px rgba(24, 24, 27, 0.2);
 	}
 
+	@media (max-width: 1024px) {
+		.resume {
+			scroll-margin-top: var(--scroll-offset-mobile);
+		}
+	}
+
 	@media (max-width: 768px) {
 		.resume {
 			padding: var(--spacing-12) var(--spacing-4);
 		}
 
 		.resume-header h2 {
-			font-size: var(--font-size-3xl);
+			font-size: var(--font-size-2xl);
 		}
-	}
 
-	@media (min-width: 1024px) and (max-width: 1200px) {
-		.resume-container {
-			height: 80vh;
-			min-height: 600px;
+		.resume-actions {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.btn-primary,
+		.btn-secondary {
+			width: 100%;
+			max-width: 280px;
 		}
 	}
 </style>

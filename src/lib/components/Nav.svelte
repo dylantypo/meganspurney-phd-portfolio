@@ -272,13 +272,9 @@
 		const element = document.getElementById(sectionId);
 
 		if (element) {
-			// Get element position relative to document
-			const elementTop = element.getBoundingClientRect().top + window.scrollY;
-
-			// Dynamic offset based on layout
+			const elementTop = element.offsetTop;
 			const isMobile = window.innerWidth <= 1024;
 			let offset = isMobile ? 85 : 80;
-
 			const targetPosition = Math.max(0, elementTop - offset);
 
 			window.scrollTo({

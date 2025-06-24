@@ -83,6 +83,8 @@
 		background: var(--color-bg);
 		border-radius: var(--radius-2xl);
 		scroll-margin-top: var(--scroll-offset-desktop);
+		min-height: 600px;
+		position: relative;
 	}
 
 	.container {
@@ -107,6 +109,8 @@
 	.publications-grid {
 		display: grid;
 		gap: var(--spacing-8);
+		grid-template-rows: min-content min-content;
+		will-change: transform;
 	}
 
 	.publication-card {
@@ -116,6 +120,7 @@
 		border: 1px solid var(--color-border-light);
 		box-shadow: var(--shadow-sm);
 		position: relative;
+		contain: layout style;
 	}
 
 	.publication-card.featured {
