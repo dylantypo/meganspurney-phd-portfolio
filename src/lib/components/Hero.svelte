@@ -7,7 +7,7 @@
 		<div class="profile-card">
 			<div class="profile-image">
 				<div class="border-blur"></div>
-				<img src="/pics/Grad_Pic.jpg" alt="Megan Spurney" />
+				<img src="/pics/Grad_Pic.webp" alt="Megan Spurney" />
 			</div>
 
 			<div class="profile-info">

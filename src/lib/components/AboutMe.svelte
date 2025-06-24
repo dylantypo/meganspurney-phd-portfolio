@@ -44,8 +44,8 @@
 			</div>
 
 			<div class="image-grid">
-				<img src="/pics/shannon-building-nih.jpg" alt="NIH Shannon Building" loading="lazy" />
-				<img src="/pics/scan.png" alt="Brain scan imagery" loading="lazy" />
+				<img src="/pics/shannon-building-nih.webp" alt="NIH Shannon Building" loading="lazy" />
+				<img src="/pics/scan.webp" alt="Brain scan imagery" loading="lazy" />
 			</div>
 
 			<div class="text-block">
@@ -67,8 +67,8 @@
 			</div>
 
 			<div class="image-grid">
-				<img src="/pics/Cornell-University-Ithaca-NY-1024x576.jpg" alt="Cornell University campus" loading="lazy" />
-				<img src="/pics/ithaca.jpg" alt="Ithaca scenery" loading="lazy" />
+				<img src="/pics/Cornell-University-Ithaca-NY-1024x576.webp" alt="Cornell University campus" loading="lazy" />
+				<img src="/pics/ithaca.webp" alt="Ithaca scenery" loading="lazy" />
 			</div>
 
 			<div class="text-block personal">
