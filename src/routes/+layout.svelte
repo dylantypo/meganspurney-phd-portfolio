@@ -25,7 +25,7 @@
 	@media (max-width: 1024px) {
 		.main-content {
 			margin-left: 0;
-			padding: 1rem;
+			padding: var(--spacing-4);
 			padding-top: calc(var(--nav-height));
 		}
 	}

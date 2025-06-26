@@ -79,7 +79,7 @@
 
 <style>
 	.publications {
-		padding: var(--spacing-16) var(--spacing-6);
+		padding: var(--spacing-16);
 		background: var(--color-bg);
 		border-radius: var(--radius-2xl);
 		scroll-margin-top: var(--scroll-offset-desktop);

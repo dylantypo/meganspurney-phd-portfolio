@@ -157,7 +157,7 @@
 
 <style>
 	.posters {
-		padding: var(--spacing-16) var(--spacing-12);
+		padding: var(--spacing-16);
 		background: var(--color-bg);
 		scroll-margin-top: var(--scroll-offset-desktop);
 		border-radius: var(--radius-2xl);

@@ -58,7 +58,7 @@
 	}
 
 	.sidebar-content {
-		padding: 2rem 1.5rem;
+		padding: var(--spacing-12) var(--spacing-8);
 		height: 100%;
 		min-height: 100dvh;
 		display: flex;
@@ -71,7 +71,7 @@
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(8px);
 		border-radius: var(--radius-2xl);
-		padding: 2rem 1.5rem;
+		padding: var(--spacing-8) var(--spacing-6);
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 		width: 100%;
@@ -82,8 +82,8 @@
 		position: relative;
 		width: 18rem;
 		height: 21rem;
-		margin: 0 auto 1.5rem;
-		border-radius: 1.25rem;
+		margin: 0 auto var(--spacing-6);
+		border-radius: var(--spacing-5);
 		padding: 4px;
 		background: linear-gradient(
 			45deg,
@@ -183,7 +183,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.5rem 0.75rem;
+		padding: var(--spacing-2) var(--spacing-3);
 		background: rgba(255, 255, 255, 0.5);
 		border: 1px solid var(--color-border-light);
 		border-radius: var(--radius-2xl);
@@ -210,10 +210,10 @@
 		}
 	}
 
-	@media (max-width: 1275px) {
+	@media (max-width: 1375px) {
 		.profile-image {
-			width: 10rem;
-			height: 12rem;
+			width: 8rem;
+			height: 10rem;
 		}
 
 		.name {
@@ -241,7 +241,7 @@
 		}
 
 		.sidebar-content {
-			padding: 1rem 1.5rem;
+			padding: var(--spacing-1) var(--spacing-2);
 			height: auto;
 			min-height: 95dvh;
 			padding-top: 0;
@@ -269,11 +269,17 @@
 		}
 
 		.social-link {
-			font-size: 0.875rem;
+			font-size: 1rem;
 		}
 	}
 
 	@media (max-width: 768px) {
+		.sidebar-content {
+			padding: var(--spacing-3) var(--spacing-5);
+			height: auto;
+			min-height: 95dvh;
+			padding-top: 0;
+		}
 		.profile-image {
 			width: 12rem;
 			height: 15rem;
