@@ -4,94 +4,56 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-		<!-- Security & DNS -->
-		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
-		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-		<meta http-equiv="x-dns-prefetch-control" content="on" />
+		<!-- Critical resource hints -->
+		<link rel="preload" href="/pics/Grad_Pic.webp" as="image" type="image/webp" />
+		<link rel="preload" href="/css/global.css" as="style" />
+
+		<!-- DNS optimization -->
 		<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+		<!-- Load CSS with high priority -->
 		<link rel="stylesheet" href="/css/global.css" />
 
-		<noscript>
-			<link rel="stylesheet" href="/css/global.css" />
-		</noscript>
+		<!-- Security -->
+		<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
 
 		<!-- Core Meta -->
 		<title>Megan Spurney - Neuroscience PhD Student</title>
-		<meta name="title" content="Megan Spurney" />
 		<meta
 			name="description"
-			content="Megan Spurney is a PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development, hormonal influences on cognition, and mental health trajectories."
-		/>
-		<meta
-			name="keywords"
-			content="neuroscience, cognitive science, brain research, adolescent development, Northwestern University, PhD student, fMRI, brain imaging, mental health, psychology research"
+			content="PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development and mental health."
 		/>
 		<meta name="author" content="Megan Spurney" />
 		<link rel="icon" href="/pics/favicon.ico" />
 		<link rel="canonical" href="https://meganspurney.com" />
 
-		<!-- PWA & Mobile -->
-		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<!-- PWA -->
+		<meta name="theme-color" content="#ab5bec" />
 		<meta name="mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="Megan Spurney" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="msapplication-tap-highlight" content="no" />
 
-		<!-- Open Graph -->
+		<!-- Essential Open Graph -->
 		<meta property="og:type" content="profile" />
 		<meta property="og:url" content="https://meganspurney.com" />
 		<meta property="og:title" content="Megan Spurney - PhD Student & Researcher" />
 		<meta
 			property="og:description"
-			content="PhD student in Cognitive and Affective Neuroscience at Northwestern University, researching adolescent brain development and mental health."
+			content="PhD student in Cognitive and Affective Neuroscience at Northwestern University."
 		/>
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Megan Spurney - Professional headshot" />
-		<meta property="og:site_name" content="Megan Spurney Portfolio" />
-		<meta property="profile:first_name" content="Megan" />
-		<meta property="profile:last_name" content="Spurney" />
+		<meta property="og:image" content="https://meganspurney.com/pics/og-image.webp" />
 
-		<!-- SEO & Validation -->
-		<meta
-			name="robots"
-			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-		/>
-		<meta name="googlebot" content="index, follow" />
-		<meta name="displaydate" content="2025-01-29" />
-		<link rel="author" href="https://meganspurney.com" />
-
-		<!-- Structured Data -->
+		<!-- Minimal structured data -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
 				"@type": "Person",
 				"name": "Megan Spurney",
-				"jobTitle": "PhD Student in Cognitive and Affective Neuroscience",
-				"description": "PhD student researching adolescent brain development, hormonal influences on cognition, and mental health trajectories.",
-				"worksFor": {
-					"@type": "Organization",
-					"name": "Northwestern University"
-				},
-				"url": "https://meganspurney.com",
-				"email": "meganspurney@u.northwestern.edu",
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Chicago",
-					"addressRegion": "IL",
-					"addressCountry": "US"
-				},
-				"sameAs": [
-					"https://github.com/meganspurney",
-					"https://scholar.google.com/citations?user=xeTU8s4AAAAJ&hl=en"
-				],
-				"alumniOf": {
-					"@type": "EducationalOrganization",
-					"name": "Cornell University"
-				}
+				"jobTitle": "PhD Student",
+				"worksFor": { "@type": "Organization", "name": "Northwestern University" },
+				"url": "https://meganspurney.com"
 			}
 		</script>
 

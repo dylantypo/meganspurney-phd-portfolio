@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Brain } from '@lucide/svelte';
-	import { gsap } from 'gsap';
-	import { MorphSVGPlugin } from 'gsap/dist/MorphSVGPlugin';
 
-	gsap.registerPlugin(MorphSVGPlugin);
-
+	let gsap: any;
 	let navElement: HTMLElement;
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
@@ -20,6 +17,16 @@
 	];
 
 	onMount(() => {
+		// Load GSAP asynchronously
+		(async () => {
+			const gsapModule = await import('gsap');
+			const { MorphSVGPlugin } = await import('gsap/dist/MorphSVGPlugin');
+
+			gsap = gsapModule.gsap;
+			gsap.registerPlugin(MorphSVGPlugin);
+		})();
+
+		// Set initial active section based on scroll position
 		const setInitialSection = () => {
 			const sections = navItems.map((item) => item.href.substring(1));
 			const threshold = 80;
@@ -123,6 +130,8 @@
 	});
 
 	const toggleMobileMenu = () => {
+		if (!gsap) return;
+
 		const brainButton = navElement.querySelector('.mobile-brand');
 		const menu = navElement.querySelector('.mobile-menu');
 		const brainPaths = navElement.querySelectorAll('.brain-path');
@@ -185,7 +194,7 @@
 			tl.to(brainButton, {
 				x: slideDistance,
 				width: windowWidth - 32,
-				duration: 0.6,
+				duration: 0.5,
 				ease: 'circ.out'
 			})
 				.add(() => {
@@ -211,7 +220,7 @@
 				.fromTo(
 					menu,
 					{ opacity: 0, y: -20, scale: 0.98 },
-					{ opacity: 1, y: 0, scale: 1, duration: 0.3, ease: 'circ.out' },
+					{ opacity: 1, y: 0, scale: 1, duration: 0.2, ease: 'circ.out' },
 					0.6
 				);
 		} else {
@@ -225,7 +234,7 @@
 				opacity: 0,
 				y: -10,
 				scale: 0.98,
-				duration: 0.2,
+				duration: 0.15,
 				ease: 'circ.in'
 			})
 				// Hide menu element

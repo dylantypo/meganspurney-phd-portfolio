@@ -8,6 +8,13 @@ export default defineConfig({
 	optimizeDeps: {
 		include: ['gsap', '@lucide/svelte']
 	},
+	build: {
+		// Remove unused code more aggressively
+		minify: 'esbuild',
+		
+		// Target modern browsers for smaller bundles
+		target: 'es2020'
+	},
 
 	test: {
 		projects: [

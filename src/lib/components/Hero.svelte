@@ -190,7 +190,7 @@
 		font-size: 0.8rem;
 		font-weight: var(--font-weight-medium);
 		color: var(--color-text);
-		transition: all var(--transition-fast);
+		transition: all var(--transition-normal);
 		text-decoration: none;
 		backdrop-filter: blur(4px);
 	}

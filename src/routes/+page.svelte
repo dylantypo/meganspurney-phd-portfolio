@@ -9,9 +9,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	onMount(() => {
-		// Reset scroll position on page load
-		if (window.location.hash === '' || window.location.hash === '#') {
-			window.scrollTo(0, 0);
+		if (!window.location.hash || window.location.hash === '#') {
+			window.scrollTo({ top: 0 });
 		}
 	});
 </script>
