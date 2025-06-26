@@ -15,7 +15,7 @@
 	}
 
 	.footer p {
-		font-size: 1.2rem;
+		font-size: var(--font-size-lg);
 		color: var(--color-secondary);
 		font-weight: var(--font-weight-medium);
 	}

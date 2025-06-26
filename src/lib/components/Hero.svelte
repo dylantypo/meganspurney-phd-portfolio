@@ -134,19 +134,19 @@
 	}
 
 	.name {
-		font-size: 1.75rem;
-		font-weight: 600;
+		font-size: var(--font-size-3xl);
+		font-weight: var(--font-weight-semibold);
 		color: var(--color-primary);
-		margin-bottom: 0.75rem;
-		line-height: 1.2;
+		margin-bottom: var(--spacing-3);
+		line-height: var(--line-height-tight);
 		font-family: var(--font-base);
 	}
 
 	.title {
 		font-size: 0.9rem;
 		color: var(--color-text);
-		margin-bottom: 1rem;
-		line-height: 1.4;
+		margin-bottom: var(--spacing-4);
+		line-height: var(--line-height-normal);
 		font-family: var(--font-base);
 		opacity: 0.8;
 	}
@@ -155,11 +155,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.375rem;
+		gap: var(--spacing-1);
 		font-size: 0.8rem;
 		color: var(--color-text);
-		font-weight: 500;
-		margin-bottom: 0.25rem;
+		font-weight: var(--font-weight-medium);
+		margin-bottom: var(--spacing-1);
 		font-family: var(--font-base);
 		opacity: 0.7;
 	}
@@ -169,12 +169,12 @@
 		color: var(--color-text);
 		font-family: var(--font-base);
 		opacity: 0.6;
-		margin-bottom: 1.5rem;
+		margin-bottom: var(--spacing-6)
 	}
 
 	.social-links {
 		display: flex;
-		gap: 0.75rem;
+		gap: var(--spacing-3);
 		justify-content: center;
 		flex-wrap: wrap;
 	}
@@ -182,13 +182,13 @@
 	.social-link {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--spacing-2);
 		padding: var(--spacing-2) var(--spacing-3);
 		background: rgba(255, 255, 255, 0.5);
 		border: 1px solid var(--color-border-light);
 		border-radius: var(--radius-2xl);
 		font-size: 0.8rem;
-		font-weight: 500;
+		font-weight: var(--font-weight-medium);
 		color: var(--color-text);
 		transition: all var(--transition-fast);
 		text-decoration: none;
@@ -217,15 +217,15 @@
 		}
 
 		.name {
-			font-size: 1.5rem;
+			font-size: var(--font-size-2xl);
 		}
 
 		.title {
-			font-size: 0.875rem;
+			font-size: var(--font-size-sm);
 		}
 
 		.location {
-			font-size: 0.75rem;
+			font-size: var(--font-size-xs);
 		}
 
 		.location-detail {
@@ -253,23 +253,23 @@
 		}
 
 		.name {
-			font-size: 2rem;
+			font-size: var(--font-size-4xl);
 		}
 
 		.title {
-			font-size: 1rem;
+			font-size: var(--font-size-base);
 		}
 
 		.location {
-			font-size: 0.875rem;
+			font-size: var(--font-size-sm);
 		}
 
 		.location-detail {
-			font-size: 0.75rem;
+			font-size: var(--font-size-xs);
 		}
 
 		.social-link {
-			font-size: 1rem;
+			font-size: var(--font-size-base);
 		}
 	}
 
@@ -287,7 +287,7 @@
 		.social-links {
 			flex-direction: column;
 			align-items: center;
-			gap: 0.5rem;
+			gap: var(--spacing-2);
 		}
 
 		.social-link {

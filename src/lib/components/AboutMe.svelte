@@ -127,21 +127,21 @@
 		border-radius: var(--radius-2xl);
 		border: 1px solid rgba(226, 232, 240, 0.3);
 		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-		padding: 3rem;
-		margin-bottom: 0.25rem;
+		padding: var(--spacing-12);
+		margin-bottom: var(--spacing-1);
 	}
 
 	h2 {
-		font-size: 2.5rem;
-		font-weight: 600;
+		font-size: var(--font-size-5xl);
+		font-weight: var(--font-weight-semibold);
 		color: var(--color-primary);
-		margin-bottom: 2.5rem;
+		margin-bottom: var(--spacing-10);
 		text-align: center;
 		font-family: var(--font-base);
 	}
 
 	.text-block {
-		margin-bottom: 2rem;
+		margin-bottom: var(--spacing-8);
 	}
 
 	.text-block.personal {
@@ -152,8 +152,8 @@
 	}
 
 	p {
-		font-size: 1rem;
-		line-height: 1.6;
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
 		color: var(--color-text);
 		font-family: var(--font-base);
 		margin: 0;
@@ -164,9 +164,9 @@
 		text-decoration: none;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: var(--spacing-1);
 		transition: opacity var(--transition-fast);
-		font-weight: 500;
+		font-weight: var(--font-weight-medium);
 	}
 
 	a:hover {
@@ -176,8 +176,8 @@
 	.image-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 1.5rem;
-		margin: 2.5rem 0;
+		gap: var(--spacing-6);
+		margin: var(--spacing-10) 0;
 		border-radius: var(--radius-2xl);
 		overflow: hidden;
 	}
@@ -194,22 +194,15 @@
 
 	@media (max-width: 768px) {
 		.about {
-			padding: 3rem;
-		}
-		.content-card {
-			margin-bottom: 0.25rem;
-		}
-
-		h2 {
-			margin-bottom: 2.5rem;
+			padding: var(--spacing-8);
 		}
 
 		.text-block {
-			margin-bottom: 2rem;
+			margin-bottom: var(--spacing-8);
 		}
 
 		.image-grid {
-			margin: 2.5rem 0;
+			margin: var(--spacing-10) 0;
 		}
 
 		.image-grid img {
@@ -218,12 +211,15 @@
 	}
 
 	@media (max-width: 640px) {
+		.about {
+			padding: var(--spacing-1);
+		}
 		.content-card {
-			padding: 2rem 1.5rem;
+			padding: var(--spacing-8) var(--spacing-6);
 		}
 
 		h2 {
-			font-size: 1.75rem;
+			font-size: var(--font-size-3xl);
 		}
 
 		.image-grid img {

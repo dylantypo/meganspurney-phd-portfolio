@@ -554,6 +554,7 @@
 		.mobile-brand {
 			position: relative;
 			z-index: 10;
+			border-radius: var(--radius-full);
 		}
 
 		.mobile-nav-link {
